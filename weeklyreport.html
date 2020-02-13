@@ -1,0 +1,146 @@
+
+<html>
+  <head>
+    <title>每周報告產生器</title>
+    <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  </head>
+  <body>
+    <div id="mainbody">
+      <div id="title">每周報告產生器</div>
+      <div class="subject">        
+        <input id="Y"></input>年
+		<input id="M"></input>月
+		<input id="D"></input>日
+		<input id="D2"></input>日
+      </div>
+	  <div class="subject">
+        <span>屬性1</span>
+        <select class="pretty-select" id="selectattributes">
+        </select>
+      </div>
+      <div class="subject">
+        <span>廠商</span>
+        <select class="pretty-select" id="selectvendor">
+        </select>
+      </div>
+      <div class="subject">
+        <span>單位</span>
+        <select class="pretty-select" id="selectgov">
+        </select>
+      </div>
+      <div class="subject">
+        <span>屬性2</span>
+        <select class="pretty-select" id="selectattributes2">
+        </select>
+      </div>
+	  <div class="subject">
+        <span>主題</span>
+        <input id ="ssubject"></input>
+      </div>
+	  <div class="subject">
+        <span>主題2</span>
+        <input id ="ssubject2"></input>
+      </div>
+	  <div class="subject">
+        <span>效益</span>
+        <select class="pretty-select" id="selectbenefit">
+        </select>
+      </div>
+      <div class="subject">
+        <span>效益2</span>
+        <select class="pretty-select" id="selectbenefit2">
+        </select>
+      </div>
+	  <div class="subject">
+        <button onclick="generate()">產生</button>
+      </div>
+<div id="result"></div>
+    </div>
+    <div id="claim">
+      <p><a class="link" href="javascript:alert('請不要浪費太多人生在打報告上');">聲明</a></p>
+    </div>
+    <div id="foot">
+      <p>        
+        @<a class="link" href="javascript:alert('幹甚麼幹甚麼');">17lin</a>
+       </p>
+    </div>
+  </body>
+</html>
+
+<script language="javascript">
+  var attributes = ["","與","請","協助","辦理","持續辦理","辦理付款"];
+  var unit = ["","本府及","所屬機關","本府及所屬機關","所屬機關VPN單位","SOC相關單位(本府、警察局、財政稅務局、衛生局、嘉義市議會)","中正大學"];
+  var vendor = ["","資訊安全廠商","中華資安國際","中華電信","AD維護廠商","網路維護廠商","維運廠商"];
+  var attributes2 = ["聯絡廠商負責人前來維護","請廠商來本府機房建置","SOC及區域聯防系統規則調整","防毒系統及中控台更新作業","WSUS更新作業","相關成員來討論","請工程師對系統進行設定","與專案負責人一同規劃","彙整現有系統資料","更新伺服器設備","驗收系統建置狀況","處理系統狀況","巡視機房各設備運作運作狀況"];
+  var benefit = ["規劃未來藍圖","回傳系統資料","維護系統安全","保持系統運作流暢","確保專案完成","確認設備建置完畢","以利推動後續政策","以利制定新辦法","完成並結束專案","以利統整系統資料"];
+  var benefit2 = ["","等相關作業","及系統安全","回傳相關文件"];
+  //取得日期
+　var Today=new Date();
+   document.getElementById("Y").value = (Today.getFullYear()-1911);
+   document.getElementById("M").value = (Today.getMonth()+1);
+   document.getElementById("D").value = (Today.getDate());
+  //產生單位
+  var strunit ="";  
+  for (var i=0;i<unit.length;i++){
+    strunit = strunit+ '<option value="'+ unit[i] + '">' + unit[i] + '</option>';
+  }
+  document.getElementById("selectgov").innerHTML = strunit;
+  //產生廠商
+  var strvendor ="";  
+  for (var i=0;i<vendor.length;i++){
+    strvendor = strvendor+ '<option value="'+ vendor[i] + '">' + vendor[i] + '</option>';
+  }
+  document.getElementById("selectvendor").innerHTML = strvendor;
+  //產生屬性
+  var strattributes ="";  
+  for (var i=0;i<attributes.length;i++){
+    strattributes = strattributes+ '<option value="'+ attributes[i] + '">' + attributes[i] + '</option>';
+  }
+  document.getElementById("selectattributes").innerHTML = strattributes;
+  var strattributes ="";  
+  for (var i=0;i<attributes2.length;i++){
+    strattributes = strattributes+ '<option value="'+ attributes2[i] + '">' + attributes2[i] + '</option>';
+  }
+  document.getElementById("selectattributes2").innerHTML = strattributes;
+  //預設主題
+  //產生效益
+  var strbenefit ="";  
+  for (var i=0;i<benefit.length;i++){
+    strbenefit = strbenefit+ '<option value="'+ benefit[i] + '">' + benefit[i] + '</option>';
+  }
+  document.getElementById("selectbenefit").innerHTML = strbenefit;
+  var strbenefit ="";  
+  for (var i=0;i<benefit2.length;i++){
+    strbenefit = strbenefit+ '<option value="'+ benefit2[i] + '">' + benefit2[i] + '</option>';
+  }
+  document.getElementById("selectbenefit2").innerHTML = strbenefit;
+  console.log("load finish!");
+  //---------------------
+  function generate(){
+    var strresult = "";
+    strresult = strresult + document.getElementById("Y").value + "年" + document.getElementById("M").value + "月"+ document.getElementById("D").value + "日"; 
+    if (document.getElementById("D2").value !=""){
+      strresult = strresult + "至" + document.getElementById("D2").value +"日";
+    }
+    if (document.getElementById("selectattributes").value !=""){
+      strresult = strresult + document.getElementById("selectattributes").value;
+    }
+    if (document.getElementById("selectvendor").value !=""){
+      strresult = strresult + document.getElementById("selectvendor").value;
+    }
+    if (document.getElementById("selectgov").value !=""){
+      strresult = strresult + document.getElementById("selectgov").value;
+    }
+    strresult = strresult + document.getElementById("selectattributes2").value;
+    strresult = strresult + document.getElementById("ssubject").value;
+    if (document.getElementById("ssubject2").value !=""){
+      strresult = strresult + "、" + document.getElementById("ssubject2").value;
+    }
+    strresult = strresult + document.getElementById("selectbenefit").value;
+    if (document.getElementById("selectbenefit2").value !=""){
+      strresult = strresult + "，" + document.getElementById("selectbenefit2").value;
+    }    
+    document.getElementById("result").innerHTML = "<p>"+strresult+"</p>";
+  }
+</script>
