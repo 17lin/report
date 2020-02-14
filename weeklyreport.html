@@ -29,18 +29,15 @@
       </div>
       <div class="subject">
         <span>廠商</span>
-        <select class="pretty-select" id="selectvendor">
-        </select>
+        <select class="pretty-select" id="selectvendor"></select>
       </div>
       <div class="subject">
         <span>單位</span>
-        <select class="pretty-select" id="selectgov">
-        </select>
+        <select class="pretty-select" id="selectgov"></select>
       </div>
       <div class="subject">
         <span>屬性2</span>
-        <select class="pretty-select" id="selectattributes2">
-        </select>
+        <select class="pretty-select" id="selectattributes2"></select>
       </div>
 	  <div class="subject">
         <span>主題</span>
@@ -50,15 +47,17 @@
         <span>主題2</span>
         <input id ="ssubject2"></input>
       </div>
+      <div class="subject">
+        <span>常用主題</span>
+        <select class="pretty-select" id="csubject"></select>
+      </div>
 	  <div class="subject">
         <span>效益</span>
-        <select class="pretty-select" id="selectbenefit">
-        </select>
+        <select class="pretty-select" id="selectbenefit"></select>
       </div>
       <div class="subject">
         <span>效益2</span>
-        <select class="pretty-select" id="selectbenefit2">
-        </select>
+        <select class="pretty-select" id="selectbenefit2"></select>
       </div>
 	  <div class="subject">
         <button onclick="generate()">產生</button>
@@ -83,6 +82,7 @@
   var unit = ["","本府及","所屬機關","本府及所屬機關","所屬機關VPN單位","SOC相關單位(本府、警察局、財政稅務局、衛生局、嘉義市議會)","中正大學"];
   var vendor = ["","資訊安全廠商","中華資安國際","中華電信","AD維護廠商","網路維護廠商","維運廠商"];
   var attributes2 = ["聯絡廠商負責人前來維護","請廠商來本府機房建置","SOC及區域聯防系統規則調整","防毒系統及中控台更新作業","WSUS更新作業","相關成員來討論","請工程師對系統進行設定","與專案負責人一同規劃","彙整現有系統資料","更新伺服器設備","驗收系統建置狀況","處理系統狀況","巡視機房各設備運作運作狀況"];
+  var csubjects = ["","A","B","C","D","E","F"];
   var benefit = ["以規劃未來藍圖","並回傳系統資料","以維護系統安全","以確保系統運作流暢","以確保專案完成","以確認設備建置完畢","以利後續資訊安全相關政策推動","以利制定新辦法","以完成並結束專案","以利統整系統資料"];
   var benefit2 = ["","等相關作業","及系統安全","回傳相關文件"];
   //取得日期
@@ -114,6 +114,11 @@
   }
   document.getElementById("selectattributes2").innerHTML = strattributes;
   //預設主題
+  var strattributes ="";  
+  for (var i=0;i<csubjects.length;i++){
+    strattributes = strattributes+ '<option value="'+ csubjects[i] + '">' + csubjects[i] + '</option>';
+  }
+  document.getElementById("selectattributes2").innerHTML = strattributes;
   //產生效益
   var strbenefit ="";  
   for (var i=0;i<benefit.length;i++){
