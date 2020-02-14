@@ -83,7 +83,7 @@
   var unit = ["","本府及","所屬機關","本府及所屬機關","所屬機關VPN單位","SOC相關單位(本府、警察局、財政稅務局、衛生局、嘉義市議會)","中正大學"];
   var vendor = ["","資訊安全廠商","中華資安國際","中華電信","AD維護廠商","網路維護廠商","維運廠商"];
   var attributes2 = ["聯絡廠商負責人前來維護","請廠商來本府機房建置","SOC及區域聯防系統規則調整","防毒系統及中控台更新作業","WSUS更新作業","相關成員來討論","請工程師對系統進行設定","與專案負責人一同規劃","彙整現有系統資料","更新伺服器設備","驗收系統建置狀況","處理系統狀況","巡視機房各設備運作運作狀況"];
-  var benefit = ["規劃未來藍圖","回傳系統資料","維護系統安全","保持系統運作流暢","確保專案完成","確認設備建置完畢","以利推動後續政策","以利制定新辦法","完成並結束專案","以利統整系統資料"];
+  var benefit = ["以規劃未來藍圖","並回傳系統資料","以維護系統安全","以確保系統運作流暢","以確保專案完成","以確認設備建置完畢","以利後續資訊安全相關政策推動","以利制定新辦法","以完成並結束專案","以利統整系統資料"];
   var benefit2 = ["","等相關作業","及系統安全","回傳相關文件"];
   //取得日期
 　var Today=new Date();
@@ -147,7 +147,7 @@
     if (document.getElementById("ssubject2").value !=""){
       strresult = strresult + "、" + document.getElementById("ssubject2").value;
     }
-    strresult = strresult + document.getElementById("selectbenefit").value;
+    strresult = strresult + "，" + document.getElementById("selectbenefit").value;
     if (document.getElementById("selectbenefit2").value !=""){
       strresult = strresult + "，" + document.getElementById("selectbenefit2").value;
     }    
