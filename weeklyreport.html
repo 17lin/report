@@ -48,10 +48,6 @@
         <input id ="ssubject2"></input>
       </div>
       <div class="subject">
-        <span>常用主題</span>
-        <select class="pretty-select" id="csubject"></select>
-      </div>
-	  <div class="subject">
         <span>效益</span>
         <select class="pretty-select" id="selectbenefit"></select>
       </div>
@@ -81,9 +77,16 @@
   var attributes = ["","與","請","協助","辦理","持續辦理","辦理付款"];
   var unit = ["","本府及","所屬機關","本府及所屬機關","所屬機關VPN單位","SOC相關單位(本府、警察局、財政稅務局、衛生局、嘉義市議會)","中正大學"];
   var vendor = ["","資訊安全廠商","中華資安國際","中華電信","AD維護廠商","網路維護廠商","維運廠商"];
-  var attributes2 = ["聯絡廠商負責人前來維護","請廠商來本府機房建置","SOC及區域聯防系統規則調整","防毒系統及中控台更新作業","WSUS更新作業","相關成員來討論","請工程師對系統進行設定","與專案負責人一同規劃","彙整現有系統資料","更新伺服器設備","驗收系統建置狀況","處理系統狀況","巡視機房各設備運作運作狀況"];
-  var csubjects = ["";
-  var benefit = ["以規劃未來藍圖","並回傳系統資料","以維護系統安全","以確保系統運作流暢","以確保專案完成","以確認設備建置完畢","以利後續資訊安全相關政策推動","以利制定新辦法","以完成並結束專案","以利統整系統資料"];
+  var attributes2 = ["聯絡廠商負責人前來維護","請廠商來本府機房建置","SOC及區域聯防系統規則調整",
+		     "防毒系統及中控台更新作業","WSUS更新作業","相關成員來討論","請工程師對系統進行設定",
+		     "與專案負責人一同規劃","彙整現有系統資料","更新伺服器設備","驗收系統建置狀況","處理系統狀況",
+		     "巡視機房各設備運作運作狀況","協助OO軟體汰換導入作業，針對部分新增之電腦進行套用組態規則設定，辦理OO基礎組態季維護作業",
+		     "辦理OO分析平台及OO平台兩項採購案簽付作業並辦理後續採購經費核銷事宜，辦理OO系統日誌收集器調整並檢視收容狀況，與OO討論「OO委外服務案」產學合作項目及合作模式",
+		    "透過OOOO聯防機制進行防火牆派送阻擋，以防範網路惡意行為攻擊及資安事件鑑識蒐證",
+		    "為提供OO及OOVPN單位享有更高且更穩定之網路品質，進行設備維護作業，辦理OO對外流量調整，目前主幹流量經調整後已節省50%頻寬，以提升OO及OO民眾連線品質",
+		    "檢測OO中心通報紀錄，OO項目，經分析日誌紀錄推測，該OO應是使用者連線至購物網站，於同日通知業務單位進行修補相關漏洞，建議各單位如有相關網站已無需使用請關閉對外服務"];
+  var benefit = ["以規劃未來藍圖","並回傳系統資料","以維護系統安全","以確保系統運作流暢","以確保專案完成","以確認設備建置完畢","以利後續資訊安全相關政策推動","以利制定新辦法","以完成並結束專案","以利統整系統資料",
+		"測得OO存在OO弱點，通知廠商修補相關漏洞，掃描結果將提供各業務單位進行弱點修補與安全基準評估，並針對OO系統進行弱點修補及重新檢視防護措施"];
   var benefit2 = ["","等相關作業","及系統安全","回傳相關文件"];
   //取得日期
 　var Today=new Date();
@@ -113,12 +116,6 @@
     strattributes = strattributes+ '<option value="'+ attributes2[i] + '">' + attributes2[i] + '</option>';
   }
   document.getElementById("selectattributes2").innerHTML = strattributes;
-  //預設主題
-  var strattributes ="";  
-  for (var i=0;i<csubjects.length;i++){
-    strattributes = strattributes+ '<option value="'+ csubjects[i] + '">' + csubjects[i] + '</option>';
-  }
-  document.getElementById("csubject").innerHTML = strattributes;
   //產生效益
   var strbenefit ="";  
   for (var i=0;i<benefit.length;i++){
