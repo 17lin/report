@@ -1,2 +1,3 @@
 # report
-generate report
+做個懶人報告器，MIT 授權~__~
+有想交流的請再連絡我吧
